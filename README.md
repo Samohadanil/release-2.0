@@ -2,4 +2,5 @@
 1.Клонировать проект(сделать Git Clone https://gitlab.com/Samohadanil/online-donations.git)
 <br>2.Прописать в .env доступ к базе данных. 
 <br>3.Запустить команду php artisan migrate.
+<br>4.Запустить команду php artisan db:seed --class=UsersTableSeeder.
 
