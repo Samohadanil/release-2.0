@@ -9,7 +9,7 @@ class GeneralController extends Controller
 
 {
     public function showpage() {
-        $donation= Donations::paginate(2);
+        $donation= Donations::paginate(10);
         $one = Donations::orderBy('donation','desc')->first();
         $topDonationName = ucfirst($one->name);
         $topDonationSum = $one->donation;
