@@ -14,11 +14,11 @@ class GeneralController extends Controller
         $topDonationName = ucfirst($one->name);
         $topDonationSum = $one->donation;
         $amount= Donations::sum('donation');
-        $mouns = Donations::where('created_at', '>=', \Carbon\Carbon::now()->startOfMonth())->sum('donation');
-        $day = Donations::where('created_at', '=', \Carbon\Carbon::now())->sum('donation');
+        $month = Donations::where('created_at', '>=', \Carbon\Carbon::now()->startOfMonth())->sum('donation');
+        $day = Donations::whereDate('created_at', \Carbon\Carbon::today())->sum('donation');
 
 
-        return view('general', compact('donation', 'topDonationName', 'topDonationSum' , 'amount' , 'mouns' , 'day'));
+        return view('general', compact('donation', 'topDonationName', 'topDonationSum' , 'amount' , 'month' , 'day'));
     }
 
     public function tray($one){

@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-white u-layout-cell-6" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
-                                <div class="u-container-layout u-container-layout-6"> <span style="font-size: 30px;">Max sum for mounth: {{$mouns}}  <br> Max sum for day: {{$day}} $</span> </div>
+                                <div class="u-container-layout u-container-layout-6"> <span style="font-size: 30px;">Max sum for mounth: {{$month}}  <br> Max sum for day: {{$day}} $</span> </div>
                             </div>
                         </div>
                     </div>
