@@ -18,13 +18,28 @@ class DonationsController extends Controller
         $month = Donations::sumMonth();
         $day = Donations::sumDay();
 
+        // график
+        $mounsNow = Donations::where('created_at', '>=', \Carbon\Carbon::now()->startOfMonth())
+            ->sum('donation');
+
+        $mounsNowM = Donations::where('created_at', '>=', \Carbon\Carbon::now()->subMonths(1)->startOfMonth())
+            ->where('created_at', '<=', \Carbon\Carbon::now()->startOfMonth())
+            ->sum('donation');
+
+        $mounsNowMM = Donations::where('created_at', '>=', \Carbon\Carbon::now()->subMonths(2)->startOfMonth())
+            ->where('created_at', '<=', \Carbon\Carbon::now()->subMonths(1)->startOfMonth())
+            ->sum('donation');
+
         return view('general', [
             'donation' => $donation,
             'topDonationName' => $topDonationName,
             'topDonationSum' => $topDonationSum,
             'amount' => $amount,
             'month' => $month,
-            'day' => $day
+            'day' => $day,
+            'mounsNow' => $mounsNow,
+            'mounsNowM' => $mounsNowM,
+            'mounsNowMM' => $mounsNowMM
         ]);
     }
 

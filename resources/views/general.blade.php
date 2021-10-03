@@ -52,6 +52,7 @@
     </div>
 </section>
 <section class="u-align-center u-clearfix u-grey-80 u-section-3" id="sec-8a52">
+    <div id="curve_chart" style="width: 100%; height: 500px"></div>
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
             <table class="u-table-entity u-table-entity-1">
