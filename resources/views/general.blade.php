@@ -74,7 +74,7 @@
                 <tbody class="u-table-body">
                 @foreach($donation as $value)
                     <tr style="height: 75px;">
-                    <td class="u-border-1 u-border-grey-30 u-table-cell">{{$value->id}}</td>
+                    <td class="u-border-1 u-border-grey-30 u-table-cell">{{$value->name}}</td>
                     <td class="u-border-1 u-border-grey-30 u-table-cell">{{$value->email}}</td>
                     <td class="u-border-1 u-border-grey-30 u-table-cell">{{$value->donation}}</td>
                     <td class="u-border-1 u-border-grey-30 u-table-cell">{{$value->message}}</td>
