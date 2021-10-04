@@ -65,9 +65,9 @@
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
                 ['Месяц', 'Денег'],
-                ['Август', {{$mounsNowMM}}],
-                ['Сентябрь',  {{$mounsNowM}}],
-                ['Октябрь',  {{$mounsNow}}],
+                ['Август', {{$mounsNowMM ?? ''}}],
+                ['Сентябрь',  {{$mounsNowM ?? ''}}],
+                ['Октябрь',  {{$mounsNow ?? ''}}],
             ]);
 
             var options = {
