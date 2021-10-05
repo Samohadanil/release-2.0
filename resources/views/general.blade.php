@@ -26,7 +26,7 @@
                         <div class="u-layout-row">
                             <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-3">
                                 <div class="u-container-layout u-container-layout-3">
-                                    <h2 class="u-align-center u-text u-text-3">LAST MONTH AMOUNT</h2>
+                                    <h2 class="u-align-center u-text u-text-3">ALL TIME AMOUNT</h2>
                                 </div>
                             </div>
                             <div class="u-container-style u-layout-cell u-size-30 u-white u-layout-cell-4" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
@@ -38,7 +38,7 @@
                         <div class="u-layout-row">
                             <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-5">
                                 <div class="u-container-layout u-valign-middle u-container-layout-5">
-                                    <h2 class="u-align-center u-text u-text-default u-text-4">ALL TIME AMOUNT</h2>
+                                    <h2 class="u-align-center u-text u-text-default u-text-4">LAST MONTH AMOUNT</h2>
                                 </div>
                             </div>
                             <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-white u-layout-cell-6" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
