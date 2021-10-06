@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donations;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DonationsController extends Controller
@@ -19,19 +20,21 @@ class DonationsController extends Controller
         $day = Donations::sumDay();
 
         // график
-        $monthNow = Donations::where('created_at', '>=', \Carbon\Carbon::now()->startOfMonth())
-            ->sum('donation');
+        $donationChart = Donations::orderBy('created_at')
+            ->get()
+            ->groupBy(function($donations) {
+                return Carbon::parse($donations->created_at)->format('d.m');
+            });
 
-        $monthNowM = Donations::where('created_at', '>=', \Carbon\Carbon::now()->subMonths(1)->startOfMonth())
-            ->where('created_at', '<=', \Carbon\Carbon::now()->startOfMonth())
-            ->sum('donation');
+        $chartArray = [];
+        array_push($chartArray, ["Month", "Sum"]);
 
-        $monthNowMM = Donations::where('created_at', '>=', \Carbon\Carbon::now()->subMonths(2)->startOfMonth())
-            ->where('created_at', '<=', \Carbon\Carbon::now()->subMonths(1)->startOfMonth())
-            ->sum('donation');
-
-        $dayNow = Donations::where('created_at', '>=', \Carbon\Carbon::today())
-            ->sum('donation');
+        foreach ($donationChart as $k => $chart) {
+            foreach ($chart as $sum) {
+                $s =+ $sum->donation;
+            }
+            array_push($chartArray, [$k, $s]);
+        }
 
 
 
@@ -42,10 +45,7 @@ class DonationsController extends Controller
             'amount' => $amount,
             'month' => $month,
             'day' => $day,
-            'monthNow' => $monthNow,
-            'monthNowM' => $monthNowM,
-            'monthNowMM' => $monthNowMM,
-            'dayNow' => $dayNow
+            'chartArray' => $chartArray
         ]);
     }
 

@@ -62,14 +62,10 @@
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
 
+
         function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Месяц', 'Sum'],
-                ['August', {{$monthNowMM ?? ''}}],
-                ['September',  {{$monthNowM ?? ''}}],
-                ['October',  {{$monthNow ?? ''}}],
-                ['Today', {{$dayNow ?? ''}}],
-            ]);
+
+            var data = google.visualization.arrayToDataTable({!! json_encode($chartArray ?? '') !!});
 
             var options = {
                 title: 'Donations',
