@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DonationsRequest;
 use App\Http\Resources\DeskResource;
 use App\Models\Donations;
 use Carbon\Carbon;
@@ -63,18 +64,13 @@ class DonationsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request\ $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DonationsRequest $request)
     {
         // Валидация полей
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required',
-            'donation' => 'required',
-            'message' => 'min:3|required',
-        ]);
+        $request->validated();
 
         $create = new Donations();
         $create->name = $request->name;
