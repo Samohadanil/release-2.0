@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/donations', function () {
+    return \App\Http\Resources\DeskResource::collection(\App\Models\Donations::all());
+});
+
+Route::get('/donations/{id}', function ($id) {
+    return new \App\Http\Resources\DeskResource(\App\Models\Donations::findOrFail($id));
+});
