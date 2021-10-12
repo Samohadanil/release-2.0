@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\DeskResource;
 use App\Models\Donations;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DonationsController extends Controller
+
 {
     public function showpage() {
         // Все пожертвования
