@@ -79,6 +79,17 @@ class DonationsController extends Controller
         $create->message = $request->message;
         $create->save();
 
-        return redirect('/')->with('status', 'Add Donations!');
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'donation' => $request->donation,
+            'msg' => $request->message,
+            'date' => Carbon::now()->toDateTimeString()
+        ];
+
+        event(new PusherEventController($data));
+
+        return redirect()->back()->with('status', 'Add Donations!');
+
     }
 }

@@ -55,7 +55,7 @@
     <div id="curve_chart" style="width: 100%; height: 500px"></div>
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
-            <table class="u-table-entity u-table-entity-1">
+            <table class="u-table-entity u-table-entity-1" id="myTable">
                 <colgroup>
                     <col width="20%">
                     <col width="20%">
@@ -109,7 +109,33 @@
                 <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
             </div>
         </nav>
-    </div></footer>
+    </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+<script>
+
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('d91eec27faea72f28ec8', {
+        cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+
+        var name = data.message.name;
+        var email = data.message.email;
+        var donation = data.message.donation;
+        var msg = data.message.msg;
+        var date = data.message.date;
+
+        $('#myTable').prepend('<tr style="height: 75px;"><td class="u-border-1 u-border-grey-30 u-table-cell">'+ name +'</td><td class="u-border-1 u-border-grey-30 u-table-cell">'+ email +'</td><td class="u-border-1 u-border-grey-30 u-table-cell">'+ donation +'</td><td class="u-border-1 u-border-grey-30 u-table-cell">'+ msg +'</td><td class="u-border-1 u-border-grey-30 u-table-cell">'+ date +'</td></tr>');
+
+    });
+</script>
 </body>
 </html>
 @endsection
